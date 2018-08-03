@@ -1,11 +1,13 @@
 package com.tian.dao.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UserInfo {
+public class UserInfo implements Serializable {
+    private static final long serialVersionUID = -829901939814462981L;
     private Long id;
 
-    private String moble;
+    private String mobile;
 
     private String realName;
 
@@ -35,12 +37,12 @@ public class UserInfo {
         this.id = id;
     }
 
-    public String getMoble() {
-        return moble;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMoble(String moble) {
-        this.moble = moble == null ? null : moble.trim();
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getRealName() {
@@ -121,5 +123,23 @@ public class UserInfo {
 
     public void setIsDel(Byte isDel) {
         this.isDel = isDel;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", mobile='" + mobile + '\'' +
+                ", realName='" + realName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", sex=" + sex +
+                ", idCard='" + idCard + '\'' +
+                ", mail='" + mail + '\'' +
+                ", birthday=" + birthday +
+                ", createTime=" + createTime +
+                ", modifyTime=" + modifyTime +
+                ", status='" + status + '\'' +
+                ", isDel=" + isDel +
+                '}';
     }
 }
