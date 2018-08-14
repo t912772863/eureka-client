@@ -131,8 +131,8 @@ public class UserInfoController extends BaseController {
         return entity;
     }
 
-    @RequestMapping("/queryById3/{id}")
-    public ResponseData queryById3(@PathVariable Long id){
+    @RequestMapping(value = "/queryById3/{id}", method = RequestMethod.POST)
+    public ResponseData queryById3(@PathVariable Long id, String a, @RequestBody TestEntity testEntity){
         return SUCCESS_RESPONSE.setData(userInfoService.queryById(id));
     }
 
