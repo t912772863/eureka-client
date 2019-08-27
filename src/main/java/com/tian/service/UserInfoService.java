@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Service
 public class UserInfoService {
-    @Autowired
+    @Autowired(required = false)
     private UserInfoMapper userInfoMapper;
 
     public void insert(UserInfo userInfo){

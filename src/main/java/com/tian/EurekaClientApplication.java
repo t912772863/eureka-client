@@ -2,11 +2,10 @@ package com.tian;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tian.common.handler.DefaultExceptionHandler;
-import org.mybatis.spring.annotation.MapperScan;
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -21,9 +20,10 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
  *  加上@EnableDiscoveryClient, 则会把本服务注册到注册中心
  *
  */
-@MapperScan("com.tian.dao")
-@EnableFeignClients
-@EnableDiscoveryClient
+//@MapperScan("com.tian.dao")
+//@EnableFeignClients
+//@EnableDiscoveryClient
+@EnableEurekaClient
 @SpringBootApplication
 public class EurekaClientApplication {
 
@@ -47,6 +47,11 @@ public class EurekaClientApplication {
 	@Bean
 	public HandlerExceptionResolver exceptionHandler(){
 		return new DefaultExceptionHandler();
+	}
+
+	@Bean
+	public ActiveMQConnectionFactory jmsConnectionFactory(){
+		return new ActiveMQConnectionFactory();
 	}
 
 	public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package com.tian.dao.mapper;
 
 import com.tian.dao.entity.UserInfo;
-import feign.Param;
+import org.springframework.data.repository.query.Param;
 
 public interface UserInfoMapper {
     int deleteByPrimaryKey(Long id);
