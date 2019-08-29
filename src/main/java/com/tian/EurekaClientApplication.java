@@ -3,6 +3,7 @@ package com.tian;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tian.common.handler.DefaultExceptionHandler;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -20,7 +21,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
  *  加上@EnableDiscoveryClient, 则会把本服务注册到注册中心
  *
  */
-//@MapperScan("com.tian.dao")
+@MapperScan("com.tian.dao")
 //@EnableFeignClients
 //@EnableDiscoveryClient
 @EnableEurekaClient
