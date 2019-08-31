@@ -13,6 +13,9 @@ import java.util.Random;
 @RestController
 public class DcController {
 
+    /**
+     * 可以通过discovery对象获服务注册的一些信息
+     */
     @Autowired
     DiscoveryClient discoveryClient;
 
