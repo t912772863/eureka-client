@@ -5,6 +5,9 @@ import com.tian.common.other.ResponseData;
 import com.tian.dao.entity.TestEntity;
 import com.tian.dao.entity.UserInfo;
 import com.tian.service.UserInfoService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Administrator on 2018/8/2 0002.
  */
+@Api("用户信息管理")
 @RestController
 @RequestMapping("userInfo")
 public class UserInfoController extends BaseController {
@@ -35,6 +39,8 @@ public class UserInfoController extends BaseController {
      * @param mobile
      * @return
      */
+    @ApiOperation("注册的时候, 发送手机验证码")
+    @ApiImplicitParam(name = "mobile", value = "手机号", dataType = "String")
     @RequestMapping("/sendMsg/{mobile}")
     public ResponseData sendMsg(@PathVariable String mobile) {
         // TODO: 2018/8/2 0002 实际业务中, 这里取随机6位数字验证码 
